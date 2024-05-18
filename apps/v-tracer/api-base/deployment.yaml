@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: v-tracer-web-api-deploy
+  
+spec:
+  selector:
+    matchLabels:
+      name: v-tracer-web-api-app
+      
+  template:
+    metadata:
+      labels:
+        name: v-tracer-web-api-app
+        
+    spec:
+      containers:
+        - name: v-tracer-web-api
+          image: sjc.vultrcr.com/xanny/web-api
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          envFrom:
+          - secretRef:
+              name: v-tracer-web-api-secrets-prod
+          resources:
+            limits:
+              cpu: "0.5" # CPU 제한을 0.5 코어로 설정
+              memory: "512Mi" # 메모리 제한을 512MB로 설정
+            requests:
+              cpu: "0.2" # CPU 요청을 0.2 코어로 설정
+              memory: "256Mi"

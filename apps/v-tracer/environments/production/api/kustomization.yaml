@@ -1,0 +1,9 @@
+namespace: v-tracer-web-api-prod
+replicas:
+- name: v-tracer-web-api-deploy
+  count: 1
+images:
+- name: sjc.vultrcr.com/xanny/web-api
+  newTag: 0.2.0
+resources:
+- ../../../api-base

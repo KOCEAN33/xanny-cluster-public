@@ -1,0 +1,14 @@
+---
+config:
+  # serverPort: 8080
+  clients:
+    - url: http://loki:3100/loki/api/v1/push
+  snippets:
+    pipelineStages:
+      - docker: {}
+      - drop: 
+          source: namespace
+          expression: "kube-.*"
+
+serviceMonitor:
+    enabled: true

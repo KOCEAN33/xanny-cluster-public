@@ -1,0 +1,9 @@
+namespace: v-tracer-client-prod
+replicas:
+- name: v-tracer-client-deploy
+  count: 1
+images:
+- name: sjc.vultrcr.com/xanny/client
+  newTag: 0.2.0
+resources:
+- ../../../client-base

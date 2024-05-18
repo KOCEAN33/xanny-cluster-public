@@ -1,0 +1,14 @@
+---
+installCRDs: true
+
+controller:
+  serviceAccount:
+   automountServiceAccountToken: true
+
+webhook:
+  serviceAccount:
+    automountServiceAccountToken: true
+
+cainjector:
+  serviceAccount:
+    automountServiceAccountToken: true
